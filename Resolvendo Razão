@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de Razões</title>
+</head>
+<body>
+
+<h2>Calculadora de Razões</h2>
+
+<form id="formulario">
+  <label for="numerador">Numerador:</label><br>
+  <input type="number" id="numerador" name="numerador"><br>
+  <label for="denominador">Denominador:</label><br>
+  <input type="number" id="denominador" name="denominador"><br><br>
+  <input type="submit" value="Calcular Razão">
+</form>
+
+<p id="resultado"></p>
+
+<script>
+// Captura o formulário
+var formulario = document.getElementById("formulario");
+
+// Adiciona um ouvinte de evento para o envio do formulário
+formulario.addEventListener("submit", function(event) {
+  // Impede o envio padrão do formulário
+  event.preventDefault();
+  
+  // Coleta os dados do formulário
+  var numerador = parseFloat(document.getElementById("numerador").value);
+  var denominador = parseFloat(document.getElementById("denominador").value);
+  
+  // Verifica se o denominador é zero
+  if (denominador === 0) {
+    alert("O denominador não pode ser zero!");
+    return;
+  }
+  
+  // Calcula a razão entre o numerador e o denominador
+  var razao = numerador / denominador;
+  
+  // Exibe a razão calculada
+  document.getElementById("resultado").textContent = "Razão: " + razao.toFixed(2);
+});
+</script>
+
+</body>
+</html>
+
